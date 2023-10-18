@@ -1,0 +1,60 @@
+# Desafio 06 - Análise de Churn
+
+## Contexto
+
+A análise a ser realizada parte da preocupação da diretoria com o aumento do índice de usuários cancelando as suas assinaturas. Eles acreditam que é possível prever se um usuário tem mais chance de deixar a plataforma antes que isso aconteça, e com base nessa informação tomar ações para reduzir o índice de Churn.
+
+Para que seja possível a análise a empresa forneceu uma base de dados em formato ".csv" contendo dados dos clientes e das desistências ocorridas. A base é compostas pelas seguintes *features*:
+
+
+*   client_id: Código de identificação do cliente;
+*   age: Idade do cliente;
+*   gender: Gênero do cliente;
+*   region: Região de origem do cliente;
+*   subscription_days: Dias de assinatura ativa do cliente;
+*   subscription_type: Tipo de conta;
+*   num_contents: Quantidade de conteúdos assistidos;
+*   avg_rating: Avaliação média dos conteúdos da plataforma;
+*   num_active_profiles: Número de perfis ativos na plataforma;
+*   num_streaming_services: Quantidade de serviços de streaming que o cliente possui;
+*   devices_connected: Quantidade de dispositivos conectados à conta;
+*   churned: Se o cliente cancelou a conta ou não.
+
+## Objetivo
+
+O objetivo da presente análise é explorar os dados para entender melhor a situação dos índices atuais de Churn e em especial, criar um modelo de classificação capaz de prever se um usuário tem mais chance de cancelar sua assinatura na plataforma ou não.
+
+## Premissas
+
+### Tratamento de dados
+
+O tratamento de dados nulos ou faltantes, será realizado de acordo com a análise exploratória. Para a facilitação da interpretação dos dados pelos modelos, será utilizado para os dados categóricos a codificação One-Hot, por meio da própria biblioteca Pandas. Para a separação de dados de treino e teste, será utilizada a bibliteca "train_test_split" do Scikitlearn.
+
+### Representações gráficas
+
+Para a representação gráfica das análises exploratórias serão utilizadas as bibliotecas "seaborn" e "matplotlib.pyplot'
+
+### Modelos propostos
+
+ Para a modelagem serão adotados os modelos "LogisticRegression" e "RandomForestClassifier", ambas bibliotecas do Scikitlearn, e que perfomam bem para modelos classificatórios.
+
+ Para o tunning de hiperparâmetros será utilizada a biblioteca "GridSearchCV", para ambos os modelos, sendo os parâmetros escolhidos depois de realizada a análise exploratória inicial e realizado o tratamento inicial dos dados. A métrica para aplicação da otimização de modelo será a Área sob a Curva ROC (Receiver Operating Characteristic).
+
+ Para a análise dos resultados será plotado e analisada a Matriz de Confusão por meio da biblioteca "ConfusionMatrixDisplay" e "confusion_matrix".Para a verifação das métricas serão utilizadas as biblitotecas do Scikitlearn: "accuracy_score","balanced_accuracy_score", "precision_score", "recall_score", "f1_score", "roc_auc_score", para avaliar a acurácia, acurácia balanceada, precisão, recall, score f1 e a Área sob a Curva ROC, que são métricas comuns para modelos classificatórios.
+
+ O modelo será considerado bem performado se alcançar valores de Área sob a Curva ROC superiores a 0,8.
+
+ A documentação específica para as bibliotecas utilizadas está presento no item "Referências e Documentação"
+
+
+ ## Referências e Documentação
+
+*   pandas: https://pandas.pydata.org/docs/;
+*   numpy: https://numpy.org/doc/stable/reference/;
+*   seaborn: https://seaborn.pydata.org/api.html
+*   matplotlib.pyplot: https://matplotlib.org/stable/api/pyplot_summary.html
+*   train_test_split: https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html
+*   LogisticRegression: https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html
+*   RandomForestClassifier: https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html
+*   Métricas: https://scikit-learn.org/stable/modules/model_evaluation.html
+*   GridSearchCV: https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html
